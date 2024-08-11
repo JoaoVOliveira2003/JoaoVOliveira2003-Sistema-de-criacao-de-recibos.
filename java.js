@@ -65,40 +65,43 @@ document.getElementById('recibo_parcela').innerHTML = document.getElementById('p
 document.getElementById('recibo_parcela').innerHTML = parcelaValue;
 }
 
-
-document.getElementById('recibo_numero').innerHTML = document.getElementById('numero').value;
-  
+document.getElementById('recibo_numero').innerHTML = document.getElementById('numero').value; 
 }
 
 function gerarRecibo() {
-document.getElementById('recibo_nome').innerHTML = document.getElementById('nome').value;
-document.getElementById('recibo_extensao').innerHTML = document.getElementById('recibo_extensao').textContent;
-var referenteSelect = document.getElementById('referente');
-var referenteValue = referenteSelect.options[referenteSelect.selectedIndex].value;
-if (referenteValue === 'outro') {
-document.getElementById('recibo_referente').innerHTML = document.getElementById('referentePersonalizado').value;
-} else {
-document.getElementById('recibo_referente').innerHTML = referenteValue;
+  document.getElementById('recibo_nome').innerHTML = document.getElementById('nome').value;
+  document.getElementById('recibo_extensao').innerHTML = document.getElementById('extensao').value;
+
+  var referenteSelect = document.getElementById('referente');
+  var referenteValue = referenteSelect.options[referenteSelect.selectedIndex].value;
+  if (referenteValue === 'outro') {
+    document.getElementById('recibo_referente').innerHTML = document.getElementById('referentePersonalizado').value;
+  } else {
+    document.getElementById('recibo_referente').innerHTML = referenteValue;
+  }
+
+  document.getElementById('recibo_endereco').innerHTML = document.getElementById('endereco').value;
+  document.getElementById('recibo_data').innerHTML = document.getElementById('data').value;
+  document.getElementById('recibo_cp').innerHTML = document.getElementById('cp').value;
+  document.getElementById('recibo_codigo').innerHTML = document.getElementById('codigo').value;
+
+  var parcelaSelect = document.getElementById('parcela');
+  var parcelaValue = parcelaSelect.options[parcelaSelect.selectedIndex].value;
+  document.getElementById('recibo_parcela').innerHTML = parcelaValue;
+
+  document.getElementById('recibo_numero').innerHTML = document.getElementById('numero').value;
+
+  /*
+  imprimindo toda a tela  
+  
+  window.print();
+  */ 
+
+  // Usando printThis para imprimir o conteúdo dentro do div com ID 'print'
+  $('#print').printThis();
 }
 
-document.getElementById('recibo_endereco').innerHTML = document.getElementById('endereco').value;
-document.getElementById('recibo_data').innerHTML = document.getElementById('data').value;
-document.getElementById('recibo_cp').innerHTML = document.getElementById('cp').value;
-document.getElementById('recibo_codigo').innerHTML = document.getElementById('codigo').value;
 
-var parcelaSelect = document.getElementById('parcela');
-var parcelaValue = parcelaSelect.options[parcelaSelect.selectedIndex].value;
-if (parcelaValue === 'outro') {
-document.getElementById('recibo_parcela').innerHTML = document.getElementById('parcelaPersonalizado').value;
-} else {
-document.getElementById('recibo_parcela').innerHTML = parcelaValue;
-}
-
-
-document.getElementById('recibo_numero').innerHTML = document.getElementById('numero').value;
-
-window.print();
-}
 
 function converterParaExtenso(numero) {
   var unidades = ['', 'hum', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
